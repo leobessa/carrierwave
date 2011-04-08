@@ -232,8 +232,7 @@ module CarrierWave
           previous = read_previous_uploader(:#{column})
           current = self.#{column}
           if previous.respond_to?(:stored?) && previous.stored?
-            current_stored = current.respond_to?(:stored?) && current.stored?
-            previous.remove! if !current_stored || previous.store_path != current.store_path
+            previous.remove!
           end
         end
       RUBY
